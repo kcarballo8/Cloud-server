@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<title>Cloud Server</title>
+<html>
+        <meta charset="utf-8"/>
+        {{!-- <link rel="stylesheet" href="styles.css"/> --}}
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+  
+<body>
+    <h1> cloud <a href="../"></a> {{path}} </h1>
+    {{#each directories as |value index|}}
+      <ul style="list-style: none">
+        <li>
+        <tr>
+          <td>
+            <form method="POST" action=".">
+              <span class="material-icons">folder</span>          
+              <a href="{{this}}"> {{this}} </a>
+            </form>
+          </td>
+        </tr>
+        </li>
+      </ul>
+    {{/each}}
+    {{#each files as |value index|}}
+      <ul style="list-style: none">
+        <li>
+          <tr>
+          <td>
+            <form method="POST" action=".">
+              <a class="icon" href="{{this}}?download"> 
+                <span class="material-icons">file_download</span></a>
+              <a href="{{this}}"> {{this}} </a>
+            </form>
+          </td>
+        </tr>
+        </li>
+      </ul>
+    {{/each}}
+
+<p>Click on the "Choose File" button to upload a file:</p>
+
+<form method="POST" enctype="multipart/form-data" action="upload">
+  <input type="file" name="file">
+  <input type="submit"  value="Upload">
+</form>
+</body>
+</html> 
